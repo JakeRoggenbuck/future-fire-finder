@@ -7,11 +7,9 @@ app = FastAPI()
 
 
 class PredictionRequest(BaseModel):
-    time_start: datetime
-    time_end: datetime
+    single_time: datetime
     lat: float
     lon: float
-    dataset: str
 
 
 @app.get("/")
@@ -21,7 +19,7 @@ def read_root():
 
 @app.post("/predict")
 def post_predict(prediction_request: PredictionRequest):
-    return
+    return prediction_request
 
 
 if __name__ == "__main__":
