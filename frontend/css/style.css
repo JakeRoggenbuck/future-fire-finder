@@ -3,3 +3,10 @@
   background: #fff9f2;
   padding: 40px;
 }
+
+.footer {
+  position: absolute;
+  bottom: 10px;
+  padding: 10px;
+  padding-left: 20px;
+}
