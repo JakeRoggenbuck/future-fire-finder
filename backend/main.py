@@ -3,6 +3,8 @@ from pydantic import BaseModel
 from fastapi import FastAPI
 import uvicorn
 
+from predict import predict
+
 app = FastAPI()
 
 
@@ -19,7 +21,7 @@ def read_root():
 
 @app.post("/predict")
 def post_predict(prediction_request: PredictionRequest):
-    return prediction_request
+    return predict(prediction_request)
 
 
 if __name__ == "__main__":

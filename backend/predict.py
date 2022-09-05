@@ -39,4 +39,15 @@ model = keras.Sequential(
 model.compile(optimizer='rmsprop', loss='categorical_crossentropy')
 model.fit(X_df, y_df, epochs=1500, verbose=True)
 
-print(model.predict(X_df))
+
+def predict(pred_data):
+    df = pd.DataFrame(
+        {
+            "lat": pred_data.lat,
+            "lon": pred_data.lon,
+            "year": pred_data.single_time.year,
+            "day": pred_data.single_time.day,
+            "month": pred_data.single_time.month,
+        }
+    )
+    return model.predict(df)
